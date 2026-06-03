@@ -75,63 +75,87 @@
 
     <div v-if="showModal" class="modal-backdrop">
       <div class="modal">
-        <div v-if="showModal" class="modal-backdrop">
-          <div class="modal">
-            <h2>{{ editMode ? "Edit Buku" : "Tambah Buku" }}</h2>
+        <h2>{{ editMode ? "Edit Buku" : "Tambah Buku" }}</h2>
 
-            <div class="row">
-              <input v-model="form.kodeBuku" placeholder="Kode Buku" />
-              <input v-model="form.judulBuku" placeholder="Judul Buku" />
-            </div>
-
-            <div class="row">
-              <input v-model="form.pengarang" placeholder="Pengarang" />
-              <input v-model="form.penerbit" placeholder="Penerbit" />
-            </div>
-
-            <div class="row">
-              <input
-                type="number"
-                min="0"
-                max="2026"
-                v-model="form.tahunTerbit"
-                placeholder="Tahun Terbit (0 = Tidak Diketahui)"
-              />
-              <input
-                type="number"
-                v-model="form.jumlahBuku"
-                placeholder="Jumlah Buku"
-              />
-            </div>
-
-            <div class="row">
-              <select v-model="form.kategori">
-                <option>Teknologi</option>
-                <option>Pendidikan</option>
-                <option>Ekonomi</option>
-                <option>Hukum</option>
-                <option>Novel</option>
-              </select>
-
-              <select v-model="form.lokasiRak">
-                <option value="">Pilih Rak</option>
-
-                <option
-                  v-for="rack in racksByCategory"
-                  :key="rack.kode"
-                  :value="rack.kode"
-                >
-                  {{ rack.kode }}
-                </option>
-              </select>
-            </div>
-
-            <div class="actions">
-              <button @click="saveBook">Simpan</button>
-
-              <button class="danger" @click="showModal = false">Batal</button>
-            </div>
+        <div class="row">
+          <div class="form-group">
+            <label for="kodeBuku">Kode Buku</label>
+            <input id="kodeBuku" v-model="form.kodeBuku" type="text" />
           </div>
+
+          <div class="form-group">
+            <label for="judulBuku">Judul Buku</label>
+            <input id="judulBuku" v-model="form.judulBuku" type="text" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group">
+            <label for="pengarang">Pengarang</label>
+            <input id="pengarang" v-model="form.pengarang" type="text" />
+          </div>
+
+          <div class="form-group">
+            <label for="penerbit">Penerbit</label>
+            <input id="penerbit" v-model="form.penerbit" type="text" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group">
+            <label for="tahunTerbit">Tahun Terbit</label>
+            <input
+              id="tahunTerbit"
+              type="number"
+              min="0"
+              max="2026"
+              v-model="form.tahunTerbit"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="jumlahBuku">Jumlah Buku</label>
+            <input
+              id="jumlahBuku"
+              type="number"
+              min="1"
+              v-model="form.jumlahBuku"
+            />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group">
+            <label for="kategori">Kategori</label>
+            <select id="kategori" v-model="form.kategori">
+              <option value="">Pilih Kategori</option>
+              <option>Teknologi</option>
+              <option>Pendidikan</option>
+              <option>Ekonomi</option>
+              <option>Hukum</option>
+              <option>Novel</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="lokasiRak">Lokasi Rak</label>
+            <select id="lokasiRak" v-model="form.lokasiRak">
+              <option value="">Pilih Rak</option>
+
+              <option
+                v-for="rack in racksByCategory"
+                :key="rack.kode"
+                :value="rack.kode"
+              >
+                {{ rack.kode }}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button @click="saveBook">Simpan</button>
+          <button class="danger" @click="showModal = false">Batal</button>
         </div>
       </div>
     </div>
@@ -480,6 +504,9 @@ button {
   border-radius: 24px;
   width: 700px;
   max-width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
 }
 .row {
   display: grid;
@@ -497,6 +524,25 @@ button {
 }
 .modal .actions button {
   flex: 1;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.form-group label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+.form-group input,
+.form-group select {
+  width: 100%;
+}
+.modal h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #1f2937;
 }
 .footer {
   text-align: center;
@@ -549,7 +595,9 @@ button {
   .modal {
     width: 95%;
     max-width: none;
+    max-height: 95vh;
     padding: 18px;
+    overflow-y: auto;
   }
 }
 @media (max-width: 480px) {

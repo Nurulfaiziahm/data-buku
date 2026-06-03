@@ -50,7 +50,7 @@
         <option>Pendidikan</option>
         <option>Ekonomi</option>
         <option>Hukum</option>
-        <option>Novel</option>
+        <option>Fiksi</option>
       </select>
       <button @click="openAddModal">+ Tambah Buku</button>
     </section>
@@ -60,7 +60,7 @@
         <span class="badge">{{ book.kategori }}</span>
         <h3>{{ book.judulBuku }}</h3>
         <p><b>Kode:</b> {{ book.kodeBuku }}</p>
-        <p><b>Pengarang:</b> {{ book.pengarang }}</p>
+        <p><b>Penulis:</b> {{ book.penulis }}</p>
         <p><b>Rak:</b> {{ book.lokasiRak }}</p>
         <p><b>Jumlah:</b> {{ book.jumlahBuku }}</p>
         <p><b>Tahun:</b> {{ book.tahunTerbit }}</p>
@@ -133,7 +133,7 @@
               <option>Pendidikan</option>
               <option>Ekonomi</option>
               <option>Hukum</option>
-              <option>Novel</option>
+              <option>Fiksi</option>
             </select>
           </div>
 
@@ -189,7 +189,7 @@ const allRacks = [
   })),
   ...Array.from({ length: 5 }, (_, i) => ({
     kode: `N-0${i + 1}`,
-    kategori: "Novel",
+    kategori: "Fiksi",
   })),
 ];
 
@@ -240,7 +240,7 @@ const defaultBooks = [
     penulis: "Andrea Hirata",
     penerbit: "Bentang",
     tahunTerbit: 2020,
-    kategori: "Novel",
+    kategori: "Fiksi",
     jumlahBuku: 12,
     lokasiRak: "N-01",
   },

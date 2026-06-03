@@ -188,7 +188,7 @@ const allRacks = [
     kategori: "Hukum",
   })),
   ...Array.from({ length: 5 }, (_, i) => ({
-    kode: `N-0${i + 1}`,
+    kode: `F-0${i + 1}`,
     kategori: "Fiksi",
   })),
 ];
@@ -242,12 +242,17 @@ const defaultBooks = [
     tahunTerbit: 2020,
     kategori: "Fiksi",
     jumlahBuku: 12,
-    lokasiRak: "N-01",
+    lokasiRak: "F-01",
   },
 ];
-
+const storedBooks = JSON.parse(localStorage.getItem("library-final"));
 const books = ref(
-  JSON.parse(localStorage.getItem("library-final")) || defaultBooks,
+  storedBooks
+    ? storedBooks.map((book) => ({
+        ...book,
+        penulis: book.penulis || book.pengarang || "",
+      }))
+    : defaultBooks,
 );
 watch(
   books,

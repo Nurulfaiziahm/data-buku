@@ -91,12 +91,12 @@
 
         <div class="row">
           <div class="form-group">
-            <label for="pengarang">Pengarang</label>
-            <input id="pengarang" v-model="form.pengarang" type="text" />
+            <label for="penulis">Nama Penulis</label>
+            <input id="penulis" v-model="form.penulis" type="text" />
           </div>
 
           <div class="form-group">
-            <label for="penerbit">Penerbit</label>
+            <label for="penerbit">Nama Penerbit</label>
             <input id="penerbit" v-model="form.penerbit" type="text" />
           </div>
         </div>
@@ -197,7 +197,7 @@ const defaultBooks = [
   {
     kodeBuku: "BK001",
     judulBuku: "Algoritma Pemrograman",
-    pengarang: "Abdul Kadir",
+    penulis: "Abdul Kadir",
     penerbit: "Andi",
     tahunTerbit: 2023,
     kategori: "Teknologi",
@@ -207,7 +207,7 @@ const defaultBooks = [
   {
     kodeBuku: "BK002",
     judulBuku: "Strategi Pembelajaran",
-    pengarang: "Syaiful Bahri",
+    penulis: "Syaiful Bahri",
     penerbit: "Rajawali",
     tahunTerbit: 2022,
     kategori: "Pendidikan",
@@ -217,7 +217,7 @@ const defaultBooks = [
   {
     kodeBuku: "BK003",
     judulBuku: "Pengantar Ekonomi",
-    pengarang: "Sadono Sukirno",
+    penulis: "Sadono Sukirno",
     penerbit: "Prenada",
     tahunTerbit: 2021,
     kategori: "Ekonomi",
@@ -227,7 +227,7 @@ const defaultBooks = [
   {
     kodeBuku: "BK004",
     judulBuku: "Hukum Bisnis",
-    pengarang: "Zaeni",
+    penulis: "Zaeni",
     penerbit: "RajaGrafindo",
     tahunTerbit: 2023,
     kategori: "Hukum",
@@ -237,7 +237,7 @@ const defaultBooks = [
   {
     kodeBuku: "BK005",
     judulBuku: "Laskar Pelangi",
-    pengarang: "Andrea Hirata",
+    penulis: "Andrea Hirata",
     penerbit: "Bentang",
     tahunTerbit: 2020,
     kategori: "Novel",
@@ -265,7 +265,7 @@ const oldKode = ref("");
 const form = reactive({
   kodeBuku: "",
   judulBuku: "",
-  pengarang: "",
+  penulis: "",
   penerbit: "",
   tahunTerbit: "",
   kategori: "Teknologi",
@@ -301,7 +301,7 @@ function openAddModal() {
   Object.assign(form, {
     kodeBuku: "",
     judulBuku: "",
-    pengarang: "",
+    penulis: "",
     penerbit: "",
     tahunTerbit: "",
     kategori: "Teknologi",
@@ -320,7 +320,7 @@ function saveBook() {
   if (
     !form.kodeBuku ||
     !form.judulBuku ||
-    !form.pengarang ||
+    !form.penulis ||
     !form.penerbit ||
     form.tahunTerbit === "" ||
     !form.kategori ||
@@ -500,22 +500,21 @@ button {
 }
 .modal {
   background: #fff;
-  padding: 24px;
   border-radius: 24px;
   width: 700px;
   max-width: 90%;
-  max-height: 90vh;
-  overflow-y: auto;
-  scrollbar-width: thin;
+  padding: 20px;
 }
 .row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  margin: 10px 0;
+  gap: 14px;
+  margin-bottom: 12px;
 }
 .modal h2 {
-  margin-bottom: 20px;
+  margin-top: 0;
+  margin-bottom: 16px;
+  text-align: center;
 }
 .modal .actions {
   display: flex;

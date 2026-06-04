@@ -274,7 +274,7 @@ const form = reactive({
   penulis: "",
   penerbit: "",
   tahunTerbit: "",
-  kategori: "Teknologi",
+  kategori: "",
   jumlahBuku: "",
   lokasiRak: "",
 });
@@ -310,7 +310,7 @@ function openAddModal() {
     penulis: "",
     penerbit: "",
     tahunTerbit: "",
-    kategori: "Teknologi",
+    kategori: "",
     jumlahBuku: "",
     lokasiRak: "",
   });

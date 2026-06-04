@@ -61,6 +61,7 @@
         <h3>{{ book.judulBuku }}</h3>
         <p><b>Kode:</b> {{ book.kodeBuku }}</p>
         <p><b>Penulis:</b> {{ book.penulis }}</p>
+        <p><b>Penerbit:</b> {{ book.penerbit }}</p>
         <p><b>Rak:</b> {{ book.lokasiRak }}</p>
         <p><b>Jumlah:</b> {{ book.jumlahBuku }}</p>
         <p><b>Tahun:</b> {{ book.tahunTerbit }}</p>
@@ -228,7 +229,7 @@ const defaultBooks = [
     kodeBuku: "BK004",
     judulBuku: "Hukum Bisnis",
     penulis: "Zaeni",
-    penerbit: "RajaGrafindo",
+    penerbit: "Raja Grafindo",
     tahunTerbit: 2023,
     kategori: "Hukum",
     jumlahBuku: 7,
